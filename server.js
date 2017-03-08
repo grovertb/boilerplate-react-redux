@@ -9,5 +9,7 @@ app.get('*', function (req, res){
   res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
 })
 
-app.listen(port)
-console.log("server started on port " + port)
+app.listen(port, (error) => {
+  if (error) console.log(error); // eslint-disable-line no-console
+  console.info('server started on port %s.', port); // eslint-disable-line no-console
+});
