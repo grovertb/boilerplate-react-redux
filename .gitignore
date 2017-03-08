@@ -1,6 +1,5 @@
 node_modules/*
 .#*
 *.log
-config/env
-dist/*
+public/dist
 .idea
