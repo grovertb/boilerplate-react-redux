@@ -14,14 +14,22 @@ module.exports = {
       },
       {
         test: /\.jsx?$/,
-        loader: 'babel',
-        exclude: /node_modules/,
+        loader: 'babel-loader',
+        exclude: /(node_modules)/,
         query: {
           presets: ['es2016', 'es2017', 'react'],
-          compact: false,
-          plugins: ['transform-es2015-modules-commonjs']
-        }
-      }
+          plugins: ['transform-es2015-modules-commonjs'],
+          env: {
+            production: {
+              plugins: ['transform-regenerator', 'transform-runtime'],
+              presets: ['es2015']
+            },
+            development: {
+              plugins: ['transform-es2015-modules-commonjs']
+            }
+          }
+        },
+      },
     ]
   }
 };
