@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
-    "dev": "nodemon server",
+    "start": "node bin/www",
+    "dev": "nodemon bin/www",
     "build": "webpack -w",
-    "production": "webpack && node server"
+    "production": "webpack && node bin/www"
   },
-  "keywords": ["React", "Boilerplate", "Project"],
+  "keywords": [
+    "React",
+    "Boilerplate",
+    "Project"
+  ],
   "author": "Grover Trujillo Benites <grover.jtb@gmail.com>",
   "license": "ISC",
   "dependencies": {
@@ -22,10 +26,14 @@
     "babel-core": "^6.23.1",
     "babel-loader": "^6.4.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.23.0",
+    "babel-preset-es2015": "^6.24.0",
     "babel-preset-es2016": "^6.22.0",
     "babel-preset-es2017": "^6.22.0",
     "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
     "extract-text-webpack-plugin": "^2.1.0",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.2",
+    "webpack-hot-middleware": "^2.18.0"
   }
 }
