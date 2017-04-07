@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-
+require('babel-register')
 /**
  * Module dependencies.
  */
 var app = require('../app');
-var debug = require('debug')('boilerplateReact:server');
+var debug = require('debug')('boilerplateReactWebPack2:server');
 var http = require('http');
 
 /**

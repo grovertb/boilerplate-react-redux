@@ -3,6 +3,9 @@ var path              = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
+  devtool      : 'eval',
+  cache        : true,
+  context      : __dirname,
   entry: [
     'webpack-dev-server/client?http://localhost:8888',
     'webpack/hot/only-dev-server',
@@ -16,41 +19,29 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.json$/,
-        loader: 'json',
-      },
-      {
         test: /\.jsx?$/,
-        loader: 'babel-loader',
+        loaders: [ 'react-hot-loader', 'babel-loader' ],
         exclude: /(node_modules)/,
-        query: {
-          presets: ['es2016', 'es2017', 'react'],
-          plugins: ['transform-es2015-modules-commonjs'],
-          env: {
-            production: {
-              plugins: ['transform-regenerator', 'transform-runtime'],
-              presets: ['es2015']
-            },
-            development: {
-              plugins: ['transform-es2015-modules-commonjs']
-            }
-          }
-        },
       }, {
         test   : /\.js$/,
-        loaders: [ 'babel-loader' ],
+        loaders: [ 'babel-loader'],
         exclude: /node_modules/,
         include: __dirname
-      }, {
+      },
+      {
         test   : /\.js$/,
-        loaders: [ 'react-hot', 'babel-loader' ],
+        loaders: [ 'react-hot-loader', 'babel-loader' ],
         include: path.join(__dirname, 'node_modules', 'redux-devtools', 'src')
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
       }
     ]
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    // new webpack.NoErrorsPlugin()
+    new webpack.NamedModulesPlugin(),
   ],
 };
