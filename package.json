@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node bin/www",
     "dev": "nodemon bin/www",
-    "build": "webpack -w",
     "production": "webpack && node bin/www",
     "webpack:dev": "NODE_ENV=client DEBUG=true node webpack.server.js"
   },
@@ -21,7 +20,9 @@
     "express": "^4.15.2",
     "lodash": "^4.17.4",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-lite": "^0.15.33",
+    "stylus": "^0.54.5"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
@@ -33,8 +34,11 @@
     "babel-preset-es2017": "^6.22.0",
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
+    "css-loader": "^0.28.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "react-hot-loader": "^1.3.1",
+    "style-loader": "^0.16.1",
+    "stylus-loader": "^3.0.1",
     "webpack": "^2.3.3",
     "webpack-dashboard": "^0.3.0",
     "webpack-dev-server": "^2.4.2",

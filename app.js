@@ -8,8 +8,8 @@ app.use(express.static(__dirname + '/public'))
 
 app.use('/static', express.static(join(__dirname, '/build')))
 
-app.get('*', function (req, res){
-  res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-})
+// app.get('*', function (req, res){
+//   res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+// })
 
 export default app

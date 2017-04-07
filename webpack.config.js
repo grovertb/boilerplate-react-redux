@@ -36,6 +36,10 @@ module.exports = {
       {
         test: /\.json$/,
         loader: 'json-loader',
+      },
+      {
+        test: /\.styl/,
+        loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!stylus-loader' }),
       }
     ]
   },
@@ -43,5 +47,6 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-  ],
+    new ExtractTextPlugin('./styles.css')
+  ]
 };
