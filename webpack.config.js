@@ -12,7 +12,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8888',
     'webpack/hot/only-dev-server',
-    './src/index.jsx',
+    './src/App.jsx',
   ],
   output: {
     path      : __dirname + '/static/',
