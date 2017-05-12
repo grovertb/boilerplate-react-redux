@@ -1,7 +1,7 @@
 import React from 'react'
 import { Router, Route, IndexRoute, Redirect } from 'react-router'
-// import AppContainer from '../containers/AppContainer.jsx'
-// import CounterContainer from '../containers/counterContainer.jsx'
+import AppContainer from '../containers/AppContainer'
+import CounterContainer from '../containers/counterContainer'
 // import Home from '../containers/home.jsx'
 // import ErrorHandler from '../containers/error.jsx'
 
@@ -15,21 +15,12 @@ import { Router, Route, IndexRoute, Redirect } from 'react-router'
 //   </Router>
 // )
 
-// import { Provider } from 'react-redux'
-// import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { App, About, Foo } from '../components'
 
-//
-// {/*
-//   <Provider store={store}>
-//     <div></div>
-//   </Provider>
-// */}
- // {/*  component={App} */}
 export default (React, browserHistory) => (
   <Router history={ browserHistory } >
-    <Route path="/" >
-      <IndexRoute component={App} />
+    <Route path="/" component={AppContainer}>
+      <IndexRoute component={CounterContainer} />
       <Route path="about" component={About} />
       <Route path="foo" component={Foo} />
     </Route>
