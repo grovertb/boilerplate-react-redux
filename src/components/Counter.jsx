@@ -11,6 +11,7 @@ export default class Counter extends Component{
     // require('../css/app.css')
   }
 
+
   render() {
     const { counterStore, increment, decrement } = this.props
 
@@ -20,14 +21,20 @@ export default class Counter extends Component{
         <span>{counterStore.count}</span>
         <button onClick={decrement}>Disminuir</button>
         <hr />
-        <button onClick={::this._handleClick}>Ir a otra pagina</button>
+        <button onClick={this._handleClickAbout}>About</button>
+        <button onClick={::this._handleClickFoo}>Foo</button>
       </div>
     )
   }
 
-  _handleClick() {
+  _handleClickAbout = () => {
     this.context.router.push('/about')
   }
+
+  _handleClickFoo() {
+    this.context.router.push('/foo')
+  }
+
 }
 
 Counter.contextTypes = {

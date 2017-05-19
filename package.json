@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node bin/www",
     "dev": "nodemon bin/www",
-    "production": "webpack && node bin/www",
-    "webpack:dev": "NODE_ENV=client DEBUG=true node webpack.server.js"
+    "webpack:dev": "NODE_ENV=client DEBUG=true node webpack.server.js",
+    "webpack:prod": "webpack --config webpack.config.prod.js"
   },
   "keywords": [
     "React",

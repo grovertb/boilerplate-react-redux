@@ -21,8 +21,8 @@ export default (React, browserHistory) => (
   <Router history={ browserHistory } >
     <Route path="/" component={AppContainer}>
       <IndexRoute component={CounterContainer} />
-      <Route path="about" component={About} />
-      <Route path="foo" component={Foo} />
+      <Route path="/about" component={About} />
+      <Route path="/foo" component={Foo} />
     </Route>
   </Router>
 )

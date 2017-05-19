@@ -58,32 +58,6 @@ module.exports = {
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    // new ExtractTextPlugin({
-    //   filename: "styles.css"
-    //   // './styles.css'
-    // })
+    new webpack.NamedModulesPlugin()
   ]
 };
-
-// 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!stylus-loader'
-
-
-// loader: ExtractTextPlugin.extract({fallback:'style-loader', use:'css-loader?sourceMap!stylus-loader'})
-
-
-// PRODUCTION
-// use: ExtractTextPlugin.extract({
-//   fallback: 'style-loader',
-//   use: [
-//     {
-//       loader: 'css-loader',
-//       options: {
-//         modules: true,
-//         importLoaders: 1,
-//         localIdentName: '__[hash:base64:10]'
-//       }
-//     },
-//     'stylus-loader'
-//   ]
-// }),

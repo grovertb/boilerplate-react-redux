@@ -2,13 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { INCREMENT, DECREMENT } from '../actions/counterActions'
 
-function Home({ number, INCREMENT, DECREMENT }) {
+function Home({ number, increment, decrement }) {
   return (
     <div>
       Some state changes:
       {number}
-      <button onClick={() => INCREMENT(1)}>Increase</button>
-      <button onClick={() => DECREMENT(1)}>Decrease</button>
+      <button onClick={() => increment(1)}>Increase</button>
+      <button onClick={() => decrement(1)}>Decrease</button>
     </div>
   )
 }
