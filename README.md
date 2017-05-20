@@ -1,4 +1,4 @@
-# boilerplate-react
+# Boilerplate React Redux
 
 ### Instalación de dependencias
 
@@ -10,12 +10,12 @@ Para instalar las dependencias solo tienes que ejecutar en tu terminal:
 
 Puedes ejecutar las siguientes ordenés para iniciar el servidor:
 
-##### Watch files and build
-    npm run build
+##### Run developer
 
-##### Run server
-
-    npm start
     npm run dev
-    
-La diferencia de estos comandos es que `npm run dev` ofrece herramientas como `nodemon`y otras caracteristicas de desarrollo. Si todo salio bien puedes acceder al [WEBSITE](http://localhost:3000)
+
+##### Run build
+    npm run build
+    npm run start
+
+Run project in > [WEBSITE](http://localhost:3000)
