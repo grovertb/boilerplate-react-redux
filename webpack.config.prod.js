@@ -1,13 +1,21 @@
-var webpack = require('webpack'),
-    path    = require('path'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin')
+const webpack         = require('webpack'),
+    path              = require('path'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin'),
+    HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
+  // Don't attempt to continue if there are any errors.
+  bail: true,
+  // We generate sourcemaps in production. This is slow but gives good results.
+  // You can exclude the *.map files from the build during deployment.
+  devtool: 'source-map',
   entry: './src/App.jsx',
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public', 'dist')
+    // filename: 'bundle.js',
+    filename: 'static/js/[name].[chunkhash:8].js',
+    chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
+    path: path.resolve(__dirname, 'build')
   },
   module: {
     loaders: [
@@ -45,13 +53,30 @@ module.exports = {
     ]
   },
   resolve : {
-    // modulesDirectories: [
-    //   'src',
-    //   'node_modules'
-    // ],
-    extensions : ['.json', '.js', '.jsx' ]
+    modules: [
+      path.resolve('./src'),
+      path.resolve('./node_modules'),
+    ],
+    extensions : ['.js', '.json', '.jsx' ],
   },
   plugins :[
+    // Generates an `index.html` file with the <script> injected.
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: 'public/index.html',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+      },
+    }),
     new webpack.DefinePlugin({
       __CLIENT__     : true,
       __SERVER__     : false,
@@ -65,30 +90,19 @@ module.exports = {
       }
     }),
     new ExtractTextPlugin({
-      filename: "style.css",
+      filename: 'static/css/[name].[contenthash:8].css',
       disable: false,
       allChunks: true
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-          warnings: false
-        }
+        warnings: false
+      },
+      output: {
+        comments: false,
+      },
+      sourceMap: true,
     }),
   ]
 };
-
-// ,
-// options: {
-//   presets: ['es2016', 'es2017', 'react'],
-//   plugins: ['transform-es2015-modules-commonjs'],
-//   env: {
-//     production: {
-//       plugins: ['transform-regenerator', 'transform-runtime'],
-//       presets: ['es2015']
-//     },
-//     development: {
-//       plugins: ['transform-es2015-modules-commonjs']
-//     }
-//   }
-// },

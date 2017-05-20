@@ -7,12 +7,12 @@ const app     = express()
 
 app.use(logger('dev'));
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/build'))
 
-app.use('/static', express.static(join(__dirname, '/build')))
+// app.use('/static', express.static(join(__dirname, '/build')))
 
 app.get('*', function (req, res){
-  res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+  res.sendFile(path.resolve(__dirname, 'build', 'index.html'))
 })
 
 export default app
