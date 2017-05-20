@@ -14,6 +14,5 @@ const store   = configureStore(),
 ReactDOM.render(
   <Root store={store} >
     {routes}
-  </Root>
-, document.getElementById('app')
+  </Root>, document.getElementById('app')
 )
