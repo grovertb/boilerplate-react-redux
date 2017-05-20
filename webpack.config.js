@@ -2,12 +2,9 @@ var webpack           = require('webpack')
 var path              = require('path')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-// common: [
-// './src/styles.styl'
-// ]
 module.exports = {
-  // devtool      : 'eval',
-  devtool : 'inline-source-map',
+  devtool      : 'eval',
+  // devtool : 'inline-source-map',
   cache   : true,
   context : __dirname,
   entry: [

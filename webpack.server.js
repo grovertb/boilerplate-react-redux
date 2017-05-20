@@ -13,6 +13,9 @@ new WebpackDevServer(compiler, {
     publicPath        : webpackConfig.output.publicPath,
     hot               : true,
     quiet             : true,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
     stats             : {
       colors: true
     },

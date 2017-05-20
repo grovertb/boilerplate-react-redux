@@ -4,3 +4,4 @@ node_modules/*
 public/dist
 .idea
 yarn.lock
+static
