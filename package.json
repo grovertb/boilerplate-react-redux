@@ -11,7 +11,9 @@
   "keywords": [
     "React",
     "Boilerplate",
-    "Project"
+    "Project",
+    "Redux",
+    "Webpack 2"
   ],
   "author": "Grover Trujillo Benites <grover.jtb@gmail.com>",
   "license": "ISC",
